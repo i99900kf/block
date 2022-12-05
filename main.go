@@ -1,7 +1,7 @@
 package main
 
 import (
-	"block/blockchain3"
+	"block/blockchain4"
 	"fmt"
 )
 
@@ -9,7 +9,7 @@ import (
  * @Author: YJH
  * @Date: 2022-11-29 18:35:50
  * @LastEditors: YJH
- * @LastEditTime: 2022-12-05 15:02:25
+ * @LastEditTime: 2022-12-05 17:26:23
  * @FilePath: \go-crmf:\docker\block\main.go
  * @Description:
  *
@@ -31,12 +31,12 @@ func main() {
 	// 	//打印空行：自动换行(Printf不能自动换行)
 	// 	fmt.Println()
 	// }
-	bc := blockchain3.NewBlockchain() //第三版
+	bc := blockchain4.NewBlockchain() //第三版
 	fmt.Println(bc)
 	defer bc.Db.Close()
 	//key:value的方式构建struct实例是更严谨的写法
 	//如果是在包内使用，直接写value是可以的
 	//如果在包外使用，直接写value会出错：composite literal uses unkeyed fields
-	cli := blockchain3.CLI{BC: bc}
+	cli := blockchain4.CLI{}
 	cli.Run()
 }
